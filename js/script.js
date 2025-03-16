@@ -1,27 +1,30 @@
-// Общие скрипты для всех страниц
-document.addEventListener('DOMContentLoaded', () => {
-    // Анимация элементов при скролле
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.animate-on-scroll');
-        elements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < window.innerHeight * 0.85) {
-                el.classList.add('animate__fadeInUp');
-            }
-        });
-    };
+// Анимации при скролле
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
 
-    window.addEventListener('scroll', animateOnScroll);
-    animateOnScroll();
+document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-    // Обработчик формы
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Отправка данных
-            alert('Заявка принята! Мастер свяжется с вами через 5 минут.');
-            form.reset();
+// Плавная прокрутка
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
         });
-    }
+    });
+});
+
+// Анимация формы
+document.querySelectorAll('.form-input').forEach(input => {
+    input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+    });
+    input.addEventListener('blur', function() {
+        this.parentElement.classList.remove('focused');
+    });
 });
