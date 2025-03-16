@@ -1,35 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Автоэлектрика PRO | Контакты</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <header class="header">
-        <nav>
-            <a href="index.html" class="logo">Авто<span>Электрика</span></a>
-            <div>
-                <a href="index.html" class="nav-link">Главная</a>
-                <a href="services.html" class="nav-link">Услуги</a>
-                <a href="contact.html" class="nav-link active">Контакты</a>
+    <!-- Аналогичный хедер -->
+    <section class="contact-section">
+        <div class="contact-container animate-on-scroll">
+            <div class="contact-info">
+                <h2>Контакты</h2>
+                <p><i class="fas fa-phone"></i> +7 (901) 998-79-28</p>
+                <p><i class="fas fa-map-marker-alt"></i> Радиус выезда: 100 км от Тулы</p>
             </div>
-        </nav>
-    </header>
-
-    <section class="contact-form">
-        <h2>Экстренный вызов мастера</h2>
-        <div class="contact-info">
-            <p>📞 <a href="tel:+79019987928">+7 (901) 998-79-28</a></p>
-            <p>📍 Радиус выезда: 100 км от Тулы</p>
+            
+            <form class="contact-form animate-on-scroll">
+                <input type="text" placeholder="Ваше имя" class="form-input">
+                <input type="tel" placeholder="Телефон" class="form-input">
+                <textarea placeholder="Сообщение" class="form-input"></textarea>
+                <button class="cta-button">Отправить</button>
+            </form>
         </div>
-        <form id="contactForm">
-            <!-- Форма -->
-        </form>
     </section>
-
-    <script src="js/script.js"></script>
 </body>
 </html>
